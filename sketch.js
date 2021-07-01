@@ -20,7 +20,6 @@ function preload(){
   obstacle4 = loadImage("obstacle4.png");
 
   trex_swimming = loadImage("fish.png");
-  trex_collided = loadAnimation("trex_collided.png");
   
   restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
@@ -43,7 +42,6 @@ function setup() {
  
  trex = createSprite(50,160,20,50);
  trex.addAnimation("swimming", trex_swimming);
- trex.addAnimation("collided", trex_collided);
  trex.scale = 0.13;
   
   gameOver = createSprite(300,100);
@@ -94,7 +92,7 @@ function draw() {
     if (ground.x < 0){
       ground.x = ground.width/2;
     }
-    
+     
     //jump when the space key is pressed
     if(keyDown("space")&& trex.y >= 100) {
         trex.velocityY = -12;
@@ -124,10 +122,8 @@ function draw() {
       
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
-    cloudsGroup.setLifetimeEach(-1);
      
-     obstaclesGroup.setVelocityXEach(0);
-     cloudsGroup.setVelocityXEach(0);    
+     obstaclesGroup.setVelocityXEach(0);   
    }
   
  
